@@ -10,7 +10,7 @@ name: CSI Sidecars Update
 on:
   # Trigger with cron job
   schedule:
-    - cron: '0 0 * * 1'  # Runs every Monday at midnight
+    - cron: '*/5 * * * *'  # Runs every Monday at midnight
   workflow_dispatch:
 
 jobs:

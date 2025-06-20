@@ -3,7 +3,7 @@
  echo "Retrieve Latest Sidecar Versions"
 
 declare -A sidecars_to_repo
-sidecars_to_repo[csi-attacher]="https://api.github.com/repos/kubernetes-csi/externsdfal-attacher/releases/latest"
+sidecars_to_repo[csi-attacher]="https://api.github.com/repos/kubernetes-csi/external-attacher/releases/latest"
 sidecars_to_repo[csi-provisioner]="https://api.github.com/repos/kubernetes-csi/external-provisioner/releases/latest"
 sidecars_to_repo[csi-snapshotter]="https://api.github.com/repos/kubernetes-csi/external-snapshotter/releases/latest"
 sidecars_to_repo[csi-resizer]="https://api.github.com/repos/kubernetes-csi/external-resizer/releases/latest"
