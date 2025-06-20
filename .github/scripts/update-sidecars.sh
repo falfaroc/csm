@@ -3,7 +3,7 @@
  echo "Retrieve Latest Sidecar Versions"
 
 declare -A sidecars_to_repo
-sidecars_to_repo[csi-attacher]="https://api.github.com/repos/kubernetes-csi/external-attacher/releases/latest"
+sidecars_to_repo[csi-attacher]="https://api.github.com/repos/kubernetes-csi/externsdfal-attacher/releases/latest"
 sidecars_to_repo[csi-provisioner]="https://api.github.com/repos/kubernetes-csi/external-provisioner/releases/latest"
 sidecars_to_repo[csi-snapshotter]="https://api.github.com/repos/kubernetes-csi/external-snapshotter/releases/latest"
 sidecars_to_repo[csi-resizer]="https://api.github.com/repos/kubernetes-csi/external-resizer/releases/latest"
@@ -27,6 +27,10 @@ update_sidecars() {
     for key in "${!sidecars_to_repo[@]}"; do
         echo "Key: $key, Value: ${sidecars_to_repo[$key]}"
         latest_tag=$(retrieve_latest_tag ${sidecars_to_repo[$key]})
+        if [ -z "$latest_tag" ]; then
+            echo "Failed to retrieve latest image for $key"
+            exit 1
+        fi
 
         if grep -q $key $version_file; then
             echo "$key found in version, updating version."
