@@ -27,6 +27,10 @@ update_sidecars() {
     for key in "${!sidecars_to_repo[@]}"; do
         echo "Key: $key, Value: ${sidecars_to_repo[$key]}"
         latest_tag=$(retrieve_latest_tag ${sidecars_to_repo[$key]})
+        if [ -z "$latest_tag" ]; then
+            echo "Failed to retrieve latest image for $key"
+            exit 1
+        fi
 
         if grep -q $key $version_file; then
             echo "$key found in version, updating version."
