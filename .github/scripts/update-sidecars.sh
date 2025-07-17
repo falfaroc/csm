@@ -7,6 +7,7 @@ sidecars_to_repo[csi-snapshotter]="https://api.github.com/repos/kubernetes-csi/e
 sidecars_to_repo[csi-resizer]="https://api.github.com/repos/kubernetes-csi/external-resizer/releases/latest"
 sidecars_to_repo[csi-node-driver-registrar]="https://api.github.com/repos/kubernetes-csi/node-driver-registrar/releases/latest"
 sidecars_to_repo[csi-external-health-monitor-controller]="https://api.github.com/repos/kubernetes-csi/external-health-monitor/releases/latest"
+sidecars_to_repo[otel-collector]="https://api.github.com/repos/open-telemetry/opentelemetry-collector-releases/releases/latest"
 
 retrieve_latest_tag() {
     curl -s $1 | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/'
