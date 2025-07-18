@@ -6,7 +6,7 @@
 #
 #  http://www.apache.org/licenses/LICENSE-2.0
 
-name: CSI Sidecars Update
+name: CSM Versions Update
 on:
   workflow_dispatch:
   schedule:
@@ -19,10 +19,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Get Latest CSI Sidecar Versions
+      - name: Get Latest CSM Versions
         run: |
-          echo "Updating CSI Sidecar Versions"
-          bash $GITHUB_WORKSPACE/.github/scripts/update-sidecars.sh
+          bash $GITHUB_WORKSPACE/.github/scripts/update-versions.sh
 
       # Needed for signing commits using Github App tokens
       # See: https://github.com/peter-evans/create-pull-request/blob/main/docs/concepts-guidelines.md#commit-signing
